@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     TransButton.addEventListener('click',onTranslateClick,false)
 
     
-     //dev test 
-    //dev1 test only dev changes 
+    
 
 
 
@@ -20,9 +19,10 @@ function onTranslateClick() {
     var inputValue = document.getElementById("UserTransInput").value
     //alert(inputValue)
     let outDiv = document.getElementById("odiv")
-    let newP = "<p>" + inputValue + "</p>" +"\n"+"Source: " + sourceLanguage
+    let sATDiv = document.getElementById("sourceAndTarget")
+    let newP = "<p>" + inputValue + "</p>" +"\n" 
     outDiv.innerHTML = newP
-
+    sATDiv.innerHTML =   "\n" + "<p>" + "Source: "+ sourceLanguage +"<br>"+ "Target: "+ targetLanguage + "</p>"
 
 }
 

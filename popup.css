@@ -7,3 +7,17 @@ body{
 
     background-color: whitesmoke;
 }
+
+#sourceAndTarget{
+    background-color: turquoise;
+}
+
+h4{
+font-weight: 400;
+
+    }
+
+#TargetLanguage{
+   margin-bottom: 7px;
+}
+
