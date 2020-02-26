@@ -1,5 +1,5 @@
 function YandexRequest(srcL,trgtL,texts) {
-    var ferg = "1"
+    var re = "1"
     const request = new XMLHttpRequest()
     var url = ""
 
@@ -28,7 +28,7 @@ function YandexRequest(srcL,trgtL,texts) {
       request.send();
 
 
-      
+    return re 
 }
 
 document.addEventListener('DOMContentLoaded', function () {
