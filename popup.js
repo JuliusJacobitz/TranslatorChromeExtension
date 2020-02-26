@@ -1,5 +1,5 @@
 function YandexRequest(srcL,trgtL,texts) {
-    
+    var ferg = "1"
     const request = new XMLHttpRequest()
     var url = ""
 
@@ -20,26 +20,20 @@ function YandexRequest(srcL,trgtL,texts) {
         let res = this.response
         let Jres = JSON.parse(res)
         re = Jres.text[0]
-         
+       
     
       }                                             //problem: den response als retrun zurück geben 
       
       // Send request
-      request.send()
+      request.send();
 
 
+      
 }
-
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
     let TransButton = document.getElementById("TranslateButton")
     TransButton.addEventListener('click',onTranslateClick,false)
-
-    
-    
-
 
 
 
@@ -56,9 +50,9 @@ function onTranslateClick() {
     var sourceLanguages = document.getElementById("SourceLanguage").value
     var targetLanguages = document.getElementById("TargetLanguage").value
 
-    var ergi = YandexRequest(sourceLanguages,targetLanguages,inputValue)
+    var outputs = YandexRequest(sourceLanguages,targetLanguages,inputValue)
 
-    let newP = "<p>" + ergi + "</p>" +"\n" 
+    let newP = "<p>" + outputs + "</p>" +"\n" 
     outDiv.innerHTML = newP
    
     sATDiv.innerHTML =   "\n" + "<p>" + "Source: "+ sourceLanguages +"<br>"+ "Target: "+ targetLanguages+ "</p>"
