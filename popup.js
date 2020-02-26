@@ -21,6 +21,7 @@ function YandexRequest(srcL,trgtL,texts) {
         let Jres = JSON.parse(res)
         re = Jres.text[0]
        
+        
     
       }                                             //problem: den response als retrun zurück geben 
       
