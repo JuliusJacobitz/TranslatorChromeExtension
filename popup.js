@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function onTranslateClick() {
     
-
+    
     var inputValue = document.getElementById("UserTransInput").value
     //alert(inputValue)
     let outDiv = document.getElementById("odiv")
