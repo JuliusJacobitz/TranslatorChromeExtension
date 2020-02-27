@@ -1,1 +1,0 @@
-# TranslatorChromeExtension
