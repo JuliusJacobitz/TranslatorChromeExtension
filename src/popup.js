@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
     TransButton.addEventListener('click',onTranslateClick,false)
 
     
-    //var sourceLanIn = document.getElementById("SourceLanguage")
-    //sourceLanIn.value = "en"
+    var sourceLanIn = document.getElementById("SourceLanguage")
+    sourceLanIn.value = "en"
 
 
 
