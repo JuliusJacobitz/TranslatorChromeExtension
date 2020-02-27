@@ -1,5 +1,6 @@
+var re = " s"
 function YandexRequest(srcL,trgtL,texts) {
-    var re = "1"
+    
     const request = new XMLHttpRequest()
     var url = ""
 
@@ -14,22 +15,27 @@ function YandexRequest(srcL,trgtL,texts) {
 
     
     request.open('GET',url,true)
-
-    request.onload = function() {
+    request.onloadend = function() {
         
         let res = this.response
         let Jres = JSON.parse(res)
         re = Jres.text[0]
-       
         
-    
+
+        let outDiv = document.getElementById("odiv")
+        
+        let newP = "<p>" + re + "</p>" +"\n" 
+    outDiv.innerHTML = newP
+
+        
+        
       }                                             //problem: den response als retrun zurück geben 
       
       // Send request
       request.send();
+      
 
 
-    return re 
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -46,18 +52,15 @@ function onTranslateClick() {
     
     var inputValue = document.getElementById("UserTransInput").value
     //alert(inputValue)
-    let outDiv = document.getElementById("odiv")
-    let sATDiv = document.getElementById("sourceAndTarget")
+   
     var sourceLanguages = document.getElementById("SourceLanguage").value
     var targetLanguages = document.getElementById("TargetLanguage").value
+    YandexRequest(sourceLanguages,targetLanguages,inputValue)
 
-    var outputs = YandexRequest(sourceLanguages,targetLanguages,inputValue)
-
-    let newP = "<p>" + outputs + "</p>" +"\n" 
-    outDiv.innerHTML = newP
-   
+    
+    let sATDiv = document.getElementById("sourceAndTarget")
     sATDiv.innerHTML =   "\n" + "<p>" + "Source: "+ sourceLanguages +"<br>"+ "Target: "+ targetLanguages+ "</p>"
-
+    
 
 
 }
