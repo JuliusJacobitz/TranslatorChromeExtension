@@ -1,3 +1,5 @@
+
+
 var re = "ERROR!"
 function YandexRequest(srcL,trgtL,texts) {
     
@@ -41,6 +43,10 @@ function YandexRequest(srcL,trgtL,texts) {
 document.addEventListener('DOMContentLoaded', function () {
     let TransButton = document.getElementById("TranslateButton")
     TransButton.addEventListener('click',onTranslateClick,false)
+
+    
+    //var sourceLanIn = document.getElementById("SourceLanguage")
+    //sourceLanIn.value = "en"
 
 
 
