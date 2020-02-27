@@ -1,4 +1,4 @@
-var re = " s"
+var re = "ERROR!"
 function YandexRequest(srcL,trgtL,texts) {
     
     const request = new XMLHttpRequest()
