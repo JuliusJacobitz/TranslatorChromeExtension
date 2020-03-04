@@ -40,19 +40,42 @@ function YandexRequest(srcL,trgtL,texts) {
 
 }
 
+function setPresets(srcll,trgt) {
+    var sourceLanIn = document.getElementById("SourceLanguage")
+    sourceLanIn.value = srcll
+
+    var targetLanIN = document.getElementById("TargetLanguage")
+    targetLanIN.value = trgt
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     let TransButton = document.getElementById("TranslateButton")
+    let RevButton = document.getElementById("reversePresets")
+    RevButton.addEventListener('click',reversePresetsFunc,false)
     TransButton.addEventListener('click',onTranslateClick,false)
-
+    setPresets("en","de") //later get srcll and trgt from a log file, which stores the previously used settings
+   
     
-    var sourceLanIn = document.getElementById("SourceLanguage")
-    sourceLanIn.value = "en"
+    
+    
+   
 
 
 
 }, false)
 
+function reversePresetsFunc() {
+    var sourceLanIn = document.getElementById("SourceLanguage")
+    var currentSrc = sourceLanIn.value 
+    
 
+    var targetLanIN = document.getElementById("TargetLanguage")
+    var currentTrgt = targetLanIN.value 
+
+    sourceLanIn.value = currentTrgt
+    targetLanIN.value = currentSrc
+
+}
 function onTranslateClick() {
     
     
