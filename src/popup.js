@@ -1,4 +1,3 @@
-
 var re = "ERROR!"
 function YandexRequest(srcL,trgtL,texts) {
     
@@ -14,7 +13,6 @@ function YandexRequest(srcL,trgtL,texts) {
 
     url = base+"?key="+APIKEY+"&text="+inText+"&lang="+lan
 
-    
     request.open('GET',url,true)
     request.onloadend = function() {
         
@@ -27,11 +25,8 @@ function YandexRequest(srcL,trgtL,texts) {
         
         let newP = "<p>" + re + "</p>" +"\n" 
     outDiv.innerHTML = newP
-
-        
         
       }                                          
-      
       // Send request
       request.send();
 }
@@ -74,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById("DelPresetsButton").addEventListener('click',delPresets,false)
     
+
     //sets presets if there are no, else accesses presets
     if (localStorage.getItem("sLan") === null) {
         //alert("we set presets")  //comment out
@@ -85,9 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
         setPresets(localStorage.getItem("sLan"), localStorage.getItem("tLan"))
         //alert("old presets")  //comment out 
     }
-
-
-
 
 }, false)
 
@@ -120,9 +113,6 @@ function onTranslateClick() {
     
     let sATDiv = document.getElementById("sourceAndTarget")
     sATDiv.innerHTML =   "\n" + "<p>" + "Source: "+ sourceLanguages +"<br>"+ "Target: "+ targetLanguages+ "</p>"
-    
-
-
 }
 
 
