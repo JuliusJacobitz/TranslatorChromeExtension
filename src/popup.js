@@ -43,6 +43,13 @@ function setPresets(srcll,trgt) {
     var targetLanIN = document.getElementById("TargetLanguage")
     targetLanIN.value = trgt
 }
+function delPresets(params) {
+    localStorage.removeItem("sLan")
+    localStorage.removeItem("tLan")
+
+    document.getElementById("SourceLanguage").value  = ""
+    document.getElementById("TargetLanguage").value = ""
+}
 
 //changes local storage values (on change)
 function changesLanPS() {
@@ -65,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
     sLanIn.addEventListener('change',changesLanPS,false)
     TLanIn.addEventListener('change',changetLanPS,false)   //how can I acess the value change
 
-
+    document.getElementById("DelPresetsButton").addEventListener('click',delPresets,false)
     
     //sets presets if there are no, else accesses presets
     if (localStorage.getItem("sLan") === null) {
