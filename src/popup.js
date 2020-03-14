@@ -1,5 +1,4 @@
 
-
 var re = "ERROR!"
 function YandexRequest(srcL,trgtL,texts) {
     
@@ -31,13 +30,10 @@ function YandexRequest(srcL,trgtL,texts) {
 
         
         
-      }                                             //problem: den response als retrun zurück geben 
+      }                                          
       
       // Send request
       request.send();
-      
-
-
 }
 
 function setPresets(srcll,trgt) {
@@ -48,17 +44,41 @@ function setPresets(srcll,trgt) {
     targetLanIN.value = trgt
 }
 
+//changes local storage values (on change)
+function changesLanPS() {
+    localStorage.setItem("sLan",document.getElementById("SourceLanguage").value)
+    
+}
+function changetLanPS() {
+    localStorage.setItem("tLan",document.getElementById("TargetLanguage").value)
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     let TransButton = document.getElementById("TranslateButton")
     let RevButton = document.getElementById("reversePresets")
     RevButton.addEventListener('click',reversePresetsFunc,false)
     TransButton.addEventListener('click',onTranslateClick,false)
-    setPresets("en","de") //later get srcll and trgt from a log file, which stores the previously used settings
-   
+
+
+    let sLanIn = document.getElementById("SourceLanguage")
+    let TLanIn = document.getElementById("TargetLanguage")
+    sLanIn.addEventListener('change',changesLanPS,false)
+    TLanIn.addEventListener('change',changetLanPS,false)   //how can I acess the value change
+
+
     
-    
-    
-   
+    //sets presets if there are no, else accesses presets
+    if (localStorage.getItem("sLan") === null) {
+        //alert("we set presets")  //comment out
+        setPresets("en","de")
+        localStorage.setItem("sLan","en")
+        localStorage.setItem("tLan","de")
+    }
+    else{
+        setPresets(localStorage.getItem("sLan"), localStorage.getItem("tLan"))
+        //alert("old presets")  //comment out 
+    }
+
 
 
 
@@ -74,6 +94,10 @@ function reversePresetsFunc() {
 
     sourceLanIn.value = currentTrgt
     targetLanIN.value = currentSrc
+
+    localStorage.setItem("sLan",currentTrgt)
+    localStorage.setItem("tLan",currentSrc)
+    
 
 }
 function onTranslateClick() {
