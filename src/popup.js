@@ -49,7 +49,6 @@ function delPresets(params) {
 //changes local storage values (on change)
 function changesLanPS() {
     localStorage.setItem("sLan",document.getElementById("SourceLanguage").value)
-    
 }
 function changetLanPS() {
     localStorage.setItem("tLan",document.getElementById("TargetLanguage").value)
@@ -68,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     TLanIn.addEventListener('change',changetLanPS,false)   //how can I acess the value change
 
     document.getElementById("DelPresetsButton").addEventListener('click',delPresets,false)
-    
+    document.getElementById("clipboardButton").addEventListener('click',onClipboardClick,false)
 
     //sets presets if there are no, else accesses presets
     if (localStorage.getItem("sLan") === null) {
@@ -97,7 +96,7 @@ function reversePresetsFunc() {
 
     localStorage.setItem("sLan",currentTrgt)
     localStorage.setItem("tLan",currentSrc)
-    
+   
 
 }
 function onTranslateClick() {
@@ -114,6 +113,12 @@ function onTranslateClick() {
     let sATDiv = document.getElementById("sourceAndTarget")
     sATDiv.innerHTML =   "\n" + "<p>" + "Source: "+ sourceLanguages +"<br>"+ "Target: "+ targetLanguages+ "</p>"
 }
+
+function onClipboardClick(){
+    navigator.clipboard.readText().then(
+        clipText => document.getElementById("UserTransInput").value = clipText);   //doenst get the promise ..
+    
+} 
 
 
 
