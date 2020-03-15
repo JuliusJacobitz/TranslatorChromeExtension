@@ -117,8 +117,10 @@ function onTranslateClick() {
 
 function onClipboardClick(){
     navigator.clipboard.readText().then(
-        clipText => document.getElementById("UserTransInput").value = clipText);   //doenst get the promise ..
-    
+        clipText =>{
+        alert("got clip text"); 
+        document.getElementById("UserTransInput").value = clipText});   //doenst get the promise ..
+                                                                        // maybe with context menu 
 } 
 
 function getLanCodes() {
