@@ -6,7 +6,7 @@ function YandexRequest(srcL,trgtL,texts) {
 
 
     const base = "https://translate.yandex.net/api/v1.5/tr.json/translate"
-    const APIKEY = 'trnsl.1.1.20200226T195431Z.1cd979c15441b1cc.c821796bffa7156971ea828237a0102d64cb5235'
+    const APIKEY = 'trnsl.1.1.20200226T195431Z.1cd979c15441b1cc.c821796bffa7156971ea828237a0102d64cb5235' //fk it it's free 
     var inText = encodeURI(texts)
     var lan = srcL+"-"+trgtL               //en-ru
 
