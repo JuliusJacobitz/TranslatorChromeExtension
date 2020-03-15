@@ -66,8 +66,9 @@ document.addEventListener('DOMContentLoaded', function () {
     sLanIn.addEventListener('change',changesLanPS,false)
     TLanIn.addEventListener('change',changetLanPS,false)   //how can I acess the value change
 
-    document.getElementById("DelPresetsButton").addEventListener('click',delPresets,false)
-    document.getElementById("clipboardButton").addEventListener('click',onClipboardClick,false)
+    document.getElementById("DelPresetsButton").addEventListener('click',delPresets,false);
+    document.getElementById("clipboardButton").addEventListener('click',onClipboardClick,false);
+    document.getElementById("getLanCodesButton").addEventListener('click',getLanCodes,false)
 
     //sets presets if there are no, else accesses presets
     if (localStorage.getItem("sLan") === null) {
@@ -119,6 +120,10 @@ function onClipboardClick(){
         clipText => document.getElementById("UserTransInput").value = clipText);   //doenst get the promise ..
     
 } 
+
+function getLanCodes() {
+    open("https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes")
+}
 
 
 
