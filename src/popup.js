@@ -55,6 +55,8 @@ function changetLanPS() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    
+    
     let TransButton = document.getElementById("TranslateButton")
     let RevButton = document.getElementById("reversePresets")
     RevButton.addEventListener('click',reversePresetsFunc,false)
@@ -70,6 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("clipboardButton").addEventListener('click',onClipboardClick,false);
     document.getElementById("getLanCodesButton").addEventListener('click',getLanCodes,false)
 
+    document.getElementById("ClearButton").addEventListener('click',() => {
+        document.getElementById("UserTransInput").value = ""
+    })
     //sets presets if there are no, else accesses presets
     if (localStorage.getItem("sLan") === null) {
         //alert("we set presets")  //comment out
@@ -102,7 +107,6 @@ function reversePresetsFunc() {
 }
 function onTranslateClick() {
     
-    
     var inputValue = document.getElementById("UserTransInput").value
     //alert(inputValue)
    
@@ -116,18 +120,20 @@ function onTranslateClick() {
 }
 
 function onClipboardClick(){
-    navigator.clipboard.readText().then(
+   /* navigator.clipboard.readText().then(
         clipText =>{
         alert("got clip text"); 
         document.getElementById("UserTransInput").value = clipText});   //doenst get the promise ..
                                                                         // maybe with context menu 
+                                            
+      */
+     
+      document.getElementById("UserTransInput").value = localStorage.getItem("selText")
 } 
 
 function getLanCodes() {
     open("https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes")
 }
-
-
 
 
 
