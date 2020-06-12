@@ -1,7 +1,6 @@
 # TranslatorChromeExtension
 
-Just some spaghetti code.
-No ideas and no clue. 
+Just for fun  
 
 hf.
 
