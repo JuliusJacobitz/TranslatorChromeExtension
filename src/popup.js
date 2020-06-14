@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("ClearButton").addEventListener('click',() => {
         document.getElementById("UserTransInput").value = ""
     })
-    //sets presets if there are no, else accesses presets
+    //sets presets if there are none yet, else accesses presets
     if (localStorage.getItem("sLan") === null) {
         //alert("we set presets")  //comment out
         setPresets("en","de")
